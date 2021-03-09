@@ -1,0 +1,19 @@
+{% load static %}
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link href="{% static 'dropzone.css' %}" type="text/css" rel="stylesheet" />
+  <script src="{% static 'dropzone.js' %}"></script>
+</head>
+
+<body>
+  <form action="/image/create/" class="dropzone" id="my-awesome-dropzone"></form>
+</body>
+
+</html>
+<script>
+  Dropzone.options.myAwesomeDropzone = {
+    paramName: "img", // The name that will be used to transfer the file
+  };
+</script>
