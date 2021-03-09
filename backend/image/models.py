@@ -10,12 +10,12 @@ class Image(models.Model):
     img = models.ImageField(upload_to='images', verbose_name='Изображение',)
 
     def save(self, *args, **kwargs):
-        if not self.make_image():
+        if not self.make_thumb():
             raise Exception(
                 'Could not create thumbnail - is the file type valid?')
         super().save(*args, **kwargs)
 
-    def make_image(self):
+    def make_thumb(self):
 
         image = PILImage.open(self.img)
         image.thumbnail((1280, 720), PILImage.ANTIALIAS)
